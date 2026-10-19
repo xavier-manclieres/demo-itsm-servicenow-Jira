@@ -1,6 +1,6 @@
 # demo-itsm-servicenow
 
-[![CI](https://github.com/xavier-manclieres/demo-itsm-servicenow/actions/workflows/ci.yml/badge.svg)](https://github.com/xavier-manclieres/demo-itsm-servicenow/actions/workflows/ci.yml)
+[![CI](https://github.com/xavier-manclieres/demo-itsm-servicenow-Jira/actions/workflows/ci.yml/badge.svg)](https://github.com/xavier-manclieres/demo-itsm-servicenow-Jira/actions/workflows/ci.yml)
 
 Détection d'incidents récurrents et rédaction de REX assistée, en **infrastructure et workflows as code**.
 
