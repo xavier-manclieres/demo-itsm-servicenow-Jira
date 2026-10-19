@@ -4,9 +4,9 @@
 
 Détection d'incidents récurrents et rédaction de REX assistée, en **infrastructure et workflows as code**.
 
-Chaque nuit, n8n repère dans ServiceNow les incidents qui se répètent et propose des problèmes à valider. Quand un incident critique (P1) est résolu, il rédige un brouillon de REX à relire. Airtable sert d'espace de validation, Claude de rédacteur, Power BI de restitution.
+Chaque nuit, n8n repère dans ServiceNow (ou Jira Service Management) les incidents qui se répètent et propose des problèmes à valider. Quand un incident critique (P1) est résolu, il rédige un brouillon de REX à relire. Airtable sert d'espace de validation, Claude de rédacteur, Power BI de restitution.
 
-> Règle de conception : ServiceNow reste la source de vérité, et rien n'y est créé sans validation humaine.
+> Règle de conception : l'outil ITSM reste la source de vérité, et rien n'y est créé sans validation humaine.
 
 ## Architecture
 
@@ -27,7 +27,7 @@ ServiceNow  <-- API REST / webhook -->  n8n  <-->  Claude (tri, rédaction)
 | WF2b | Publication du REX | brouillon passé à « Validé » (vérifié toutes les 5 min) | construit, testé |
 | WF3 | Indicateurs pour Power BI | actualisation du rapport (GET /webhook/kpi) | construit, testé |
 
-« Testé » signifie testé sur données fictives, en attendant l'instance ServiceNow de développement.
+« Testé » signifie exécuté sur une instance ServiceNow de développement et sur un site Jira Service Management Cloud, avec des données fictives.
 
 ## Ce que le DevOps apporte
 
@@ -100,10 +100,12 @@ infra/         docker-compose, déploiement
 
 ## Feuille de route
 
-- [x] Semaines 1-2 : dépôt, CI, base Airtable, WF0 (instance ServiceNow demandée, en liste d'attente)
+- [x] Semaines 1-2 : dépôt, CI, base Airtable, WF0
 - [x] Semaines 3-4 : WF1 et WF1b, tests sur le code réel des nœuds
 - [x] Semaines 5-6 : WF2, WF2b et WF3
 - [x] Rapport Power BI (projet `.pbip` versionné, construit sur données fictives)
+- [x] Instance ServiceNow de développement, connexion OAuth2
+- [x] Second outil ITSM : Jira Service Management, sur la même base Airtable
 - [ ] Webhook ServiceNow (Business Rule) à la place du sondage de WF2
 - [ ] Déploiement Ansible, post LinkedIn
 

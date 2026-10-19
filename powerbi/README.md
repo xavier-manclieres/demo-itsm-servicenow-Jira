@@ -2,7 +2,7 @@
 
 ![Rapport sur données fictives](rapport%20Power%20BI%202026-10-10%20104811.png)
 
-Le rapport lit la réponse de WF3 (`GET /webhook/kpi`). Pour le construire sans attendre l'instance ServiceNow, on part de `exemple-kpi.json` : une réponse de WF3 sur **données fictives** (10 candidats problèmes et 14 REX sur 8 semaines).
+Le rapport lit la réponse de WF3 (`GET /webhook/kpi`). Pour le construire sans dépendre d'une instance ITSM, on part de `exemple-kpi.json` : une réponse de WF3 sur **données fictives** (10 candidats problèmes et 14 REX sur 8 semaines).
 
 | Fichier | Rôle |
 |---|---|
